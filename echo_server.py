@@ -58,12 +58,12 @@ def server(log_buffer=sys.stderr):
                     # TODO: Send the data you received back to the client, log
                     # the fact using the print statement here.  It will help in
                     # debugging problems.
-                    if data:
-                        sock.sendall(data)
-                        print('sent "{0}"'.format(data.decode('utf8')))
+
+                    conn.sendall(data)
+                    print('sent "{0}"'.format(data.decode('utf8')))
                     # TODO: Check here to see if the message you've received is
                     # complete.  If it is, break out of this inner loop.
-                    else:
+                    if not data:
                         print('End of buffer', log_buffer)
                         break
 

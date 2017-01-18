@@ -38,7 +38,7 @@ def client(msg, log_buffer=sys.stderr):
         while not done:
             chunk = client_sock.recv(16)
             message += chunk
-            if len(chunk) == 0:
+            if len(chunk) < 16:
                 done = True
             print('received "{0}"'.format(chunk.decode('utf8')), file=log_buffer)
     finally:
